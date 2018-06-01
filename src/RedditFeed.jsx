@@ -1,39 +1,95 @@
-import {Chart} from 'react-google-charts';
-import React from 'react'
+import React, {Component} from 'react';
+import {Pie} from 'react-chartjs-2';
+import {Line} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 
-class RedditFeed extends React.Component {
+const dataBar = {
+  labels: ['Reddit', 'Twitter', 'Facebook'],
+  datasets: [
+    {
+      label: 'My First dataset',
+      backgroundColor: '#a1a1a1',
+      borderColor: '#3e3e3e',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+      hoverBorderColor: 'rgba(255,99,132,1)',
+      data: [65, 59, 80]
+    }
+  ]
+};
+
+const dataLine = {
+  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  datasets: [
+    {
+      label: 'Emotional Response over time',
+      fill: false,
+      lineTension: 0.1,
+      backgroundColor: 'rgba(75,192,192,0.4)',
+      borderColor: '#3e3e3e',
+      borderCapStyle: 'butt',
+      borderDash: [],
+      borderDashOffset: 0.0,
+      borderJoinStyle: 'miter',
+      pointBorderColor: 'rgba(75,192,192,1)',
+      pointBackgroundColor: '#fff',
+      pointBorderWidth: 1,
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+      pointHoverBorderColor: 'rgba(220,220,220,1)',
+      pointHoverBorderWidth: 2,
+      pointRadius: 1,
+      pointHitRadius: 10,
+      data: [65, 59, 80, 81, 56, 55, 40]
+    }
+  ]
+};
+
+const dataPie = {
+	labels: [
+		'Positive Response',
+		'Negative Response'
+	],
+	datasets: [{
+		data: [27,73],
+		backgroundColor: [
+      '#3e3e3e',
+  		'#a1a1a1'
+		],
+		hoverBackgroundColor: [
+		'#78909C',
+		'#B0BEC5'
+		]
+	}]
+};
+
+
+
+class PieExample extends Component {
   constructor(props){
     super(props);
-    this.state={
-      options:{
-            title: 'Age vs. Weight comparison',
-          hAxis: {title: 'Age', minValue: 0, maxValue: 15},
-          vAxis: {title: 'Weight', minValue: 0, maxValue: 15},
-          legend: 'none'
-      },
-      data:[
-            ['Age', 'Weight'],
-            [ 8,      12],
-            [ 4,      5.5],
-            [ 11,     14],
-            [ 4,      5],
-            [ 3,      3.5],
-            [ 6.5,    7]
-      ]
-    };
+
   }
+
+
   render() {
+		if(!this.props.searched){
+			return (<p></p>)
+		} else {
+
     return (
-      <Chart
-        chartType="ScatterChart"
-        data={this.state.data}
-        options={this.state.options}
-        graph_id="ScatterChart"
-        width="100%"
-        height="400px"
-        legend_toggle
-       />
+      <div className="Card">
+        <h4>Overall Emotional Sentiment</h4>
+        <Pie data={dataPie}/>
+				<Line data={dataLine} />
+				<Bar
+				data={dataBar}
+				width={100}
+				height={50}
+			/>
+      </div>
     );
+	}
   }
-};
-export default RedditFeed;
+}
+export default PieExample
