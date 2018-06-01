@@ -14,8 +14,8 @@ class NavBar extends Component {
     return (
 
       <div className="navbar">
-  <div className='navbar-brand'>  Sens.ai </div>
-  </div>
+        <div className='navbar-brand'>  Sens.ai </div>
+      </div>
     );
   }
 }

@@ -22,13 +22,12 @@ class Search extends Component {
   render() {
 
     return (
-
       <div id="wrap">
-  <form >
-  <input  id="search" name="search" type="text" placeholder="Find Insight" onKeyDown={this.handleKeyPress} />
-  <input id="search_submit" value="Rechercher" type="submit"/>
-  </form>
-</div>
+        <form >
+          <input  id="search" name="search" type="text" placeholder="Find Insight" onKeyDown={this.handleKeyPress} />
+          <input id="search_submit" value="Rechercher" type="submit"/>
+        </form>
+      </div>
     );
   }
 }

@@ -80,13 +80,17 @@ class PieExample extends Component {
     return (
       <div className="Card">
         <h4>Overall Emotional Sentiment</h4>
-        <Pie data={dataPie}/>
-				<Line data={dataLine} />
-				<Bar
-				data={dataBar}
-				width={100}
-				height={50}
-			/>
+        <div className="flex-container">
+          <div className="singleChart">
+            <Pie data={dataPie}/>
+          </div>
+          <div className="singleChart">
+            <Line data={dataLine} />
+          </div>
+          <div className="singleChart">
+  				<Bar data={dataBar}/>
+          </div>
+        </div>
       </div>
     );
 	}

@@ -45,11 +45,11 @@ searchSubmission = query => {
 
   render() {
     return (
-<div>
-    <div>  <NavBar/>  </div>
-    <div> <Search query={this.searchSubmission}/> </div>
+    <div>
+      <div>  <NavBar/>  </div>
+      <div> <Search query={this.searchSubmission}/> </div>
       <div className="App"> </div>
-      <div className='pie'> <PieExample searched={this.state.searchSubmit}/> </div>
+      <div className="pie"> <PieExample searched={this.state.searchSubmit}/> </div>
     </div>
     );
   }
