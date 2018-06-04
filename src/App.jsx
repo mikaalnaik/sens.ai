@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import NavBar from  './navbar.js'
 import Search from './search.jsx'
 import PieExample from './RedditFeed'
-import Loading from './loading.jsx'
+// import Loading from './loading.jsx'
 
 import './App.css';
 // let twitterKeys = require('../config.js');
@@ -61,13 +61,13 @@ callApi = async () => {
 
 
   render() {
-    const comp = this.state.searchSubmit ? ( this.state.isLoading ? <Loading/> : <PieExample querySearched={this.state.query} searched={this.state.searchSubmit}/>) : "";
+
     return (
     <div>
       <div> <NavBar/> </div>
       <div> <Search query={this.searchSubmission}/> </div>
       <div className="App"> </div>
-      <div className="pie">{comp}</div>
+      <div className="pie"><PieExample searched={this.state.searchSubmit}/></div>
     </div>
     );
   }

@@ -11,14 +11,14 @@ const PORT = process.env.PORT || 3001;
 
 
 // Twitter API
-var T = new Twit({
-consumer_key:         '',
-consumer_secret:      '',
-access_token:         '',
-access_token_secret:  '',
-timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
-strictSSL:            true,     // optional - requires SSL certificates to be valid.
-})
+// var T = new Twit({
+// consumer_key:         '',
+// consumer_secret:      '',
+// access_token:         '',
+// access_token_secret:  '',
+// timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
+// strictSSL:            true,     // optional - requires SSL certificates to be valid.
+// })
 
 
 
@@ -39,17 +39,17 @@ async function getPosts() {
 // console.log(mappedReddit);
 
 
-  T.get('search/tweets', { q: 'iphone X -filter:retweets', lang: "en", count: 100 }, function(err, data, response) {
-     tweetdata = data.statuses.map(status => ({
-      platform: "Twitter",
-      user: status.user.name,
-      content: status.text,
-      source: "nill",
-      created_at: status.created_at
-    }))
-    // console.log(data);
-    // console.log(JSON.stringify({tweetdata}, null, 2))
-  })
+  // T.get('search/tweets', { q: 'iphone X -filter:retweets', lang: "en", count: 100 }, function(err, data, response) {
+  //    tweetdata = data.statuses.map(status => ({
+  //     platform: "Twitter",
+  //     user: status.user.name,
+  //     content: status.text,
+  //     source: "nill",
+  //     created_at: status.created_at
+  //   }))
+  //   // console.log(data);
+  //   // console.log(JSON.stringify({tweetdata}, null, 2))
+  // })
 
 
 
@@ -57,7 +57,7 @@ async function getPosts() {
     let posts = getPosts()
     //
     // res.send(computeData(posts))
-
+})
 
   // Make the express server serve static assets (html, javascript, css) from the /public folder
 
