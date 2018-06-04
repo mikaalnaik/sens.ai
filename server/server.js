@@ -2,6 +2,8 @@ var fetch = require('node-fetch')
 var express = require("express");
 const bodyParser = require("body-parser");
 let Twit = require('twit');
+
+
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -10,10 +12,10 @@ const PORT = process.env.PORT || 3001;
 
 // Twitter API
 var T = new Twit({
-consumer_key:         'JxeqIAN42gJfJ7GCO0VRcjapG',
-consumer_secret:      'NJQ9aONE3VUnZ2OL42wIslo1RFQUNQmOfVpEkVgYFi14yXiLDD',
-access_token:         '282075147-HkPfMmHIdxqGa3YiPg3VMd1IGiDxwtkqj9ikY9ma',
-access_token_secret:  'v9MMvFgpwpCtCrysBnK71LNyRvOJP6fXGloDTCuUerFTx',
+consumer_key:         '',
+consumer_secret:      '',
+access_token:         '',
+access_token_secret:  '',
 timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
 strictSSL:            true,     // optional - requires SSL certificates to be valid.
 })
@@ -21,7 +23,6 @@ strictSSL:            true,     // optional - requires SSL certificates to be va
 
 
 app.get("/api/hello", (req, res) => {
-console.log('howdy');
 
 async function getPosts() {
   let reddit = await fetch('https://api.pushshift.io/reddit/search/comment?q=budweiser&limit=100')
@@ -57,9 +58,8 @@ async function getPosts() {
     //
     // res.send(computeData(posts))
 
-});
 
   // Make the express server serve static assets (html, javascript, css) from the /public folder
 
   app.use(express.static('public'))
-  .listen(PORT, '0.0.0.0', 'localhost', () => console.log(`Listening on ${ PORT }`));
+    .listen(PORT, '0.0.0.0', 'localhost', () => console.log(`Listening on ${ PORT }`));
