@@ -57,7 +57,19 @@ psql -U sensai
 ```
 \q
 ```
+- Run following KNEX commands to run database migrations.
 
+```
+CREATE TABLES: Write following command on vagrant prompt
+
+knex migrate:latest;
+```
+
+```
+DROP ALL TABLES: Write following command on vagrant prompt
+
+knex migrate:rollback;
+```
 
 ## Seed File
 
