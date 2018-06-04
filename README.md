@@ -29,6 +29,36 @@
 ## Git Repo Setup
 ## Project scaffold
 ## Database Setup
+
+# CREATING NEW DATABASE
+
+- Install Postgress SQL and Knex migration tool (on vagrant prompt).
+
+````````
+npm install pg --save
+npm install knex --save
+````````
+
+- Write a following command to create database (on vagrant prompt).
+```
+psql -U vagrant -d template1
+
+CREATE ROLE sensai WITH LOGIN PASSWORD 'sensai';
+CREATE DATABASE sensai OWNER sensai;
+```
+- To login to Postgress database with user sensai
+
+```
+psql -U sensai
+```
+
+- To quit and logout Postgress database
+
+```
+\q
+```
+
+
 ## Seed File
 
 
