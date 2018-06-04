@@ -2,13 +2,17 @@ import React, {Component} from 'react';
 import NavBar from  './navbar.js'
 import Search from './search.jsx'
 import PieExample from './RedditFeed'
+import Loading from './loading.jsx'
+
 import './App.css';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      searchSubmit : false
+      searchSubmit : false,
+      isLoading: true,
+      query: "",
     }
     }
 
@@ -23,10 +27,10 @@ class App extends Component {
   }
   */
 
-
-
-
 searchSubmission = query => {
+  // this.setState= {...this.state,
+  //   isLoading: true;
+  // }
   console.log(query);
   fetch(`https://api.pushshift.io/reddit/search/comment?q=${query}&limit=100`)
   .then(data => data.json())
@@ -38,18 +42,23 @@ searchSubmission = query => {
     console.log('Data', data)
     console.log('Author', data.author)
     console.log('Date', data.created_utc)
-    this.setState({searchSubmit : true})
+    this.setState({
+      searchSubmit : true,
+      isLoading: false,
+      query: query,
+    })
     console.log(this.state);
   })
 }
 
   render() {
+    const comp = this.state.searchSubmit ? ( this.state.isLoading ? <Loading/> : <PieExample querySearched={this.state.query} searched={this.state.searchSubmit}/>) : "";
     return (
     <div>
-      <div>  <NavBar/>  </div>
+      <div> <NavBar/> </div>
       <div> <Search query={this.searchSubmission}/> </div>
       <div className="App"> </div>
-      <div className="pie"> <PieExample searched={this.state.searchSubmit}/> </div>
+      <div className="pie">{comp}</div>
     </div>
     );
   }

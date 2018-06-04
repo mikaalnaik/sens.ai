@@ -76,10 +76,10 @@ class PieExample extends Component {
 		if(!this.props.searched){
 			return (<p></p>)
 		} else {
-
+console.log(this.props.querySearched, "searched")
     return (
       <div className="Card">
-        <h4>Overall Emotional Sentiment</h4>
+        <h4>Overall Emotional Sentiment for {this.props.querySearched}</h4>
         <div className="flex-container">
           <div className="singleChart">
             <Pie data={dataPie}/>

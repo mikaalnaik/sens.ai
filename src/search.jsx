@@ -1,13 +1,10 @@
 import React, {Component} from 'react';
 
 
-
-
 class Search extends Component {
   constructor(props){
     super(props);
   }
-
 
   handleKeyPress = (e) => {
     if(e.key === 'Enter'){
@@ -18,9 +15,7 @@ class Search extends Component {
     }
   }
 
-
   render() {
-
     return (
       <div id="wrap">
         <form >
