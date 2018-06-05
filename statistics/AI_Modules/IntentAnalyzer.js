@@ -1,6 +1,6 @@
 require('dotenv').config()
 const pd = require('paralleldots');
-pd.apiKey = "5IMKNmwzs5rY486LHOjJkMSbhkNp057TdqlLP19wcAE"
+pd.apiKey = ""
 const Promise = require('bluebird')
 
 const intentAnalyzer = function(post) { // analyzes all posts
