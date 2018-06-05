@@ -4,8 +4,8 @@ var toneAnalyzer = new ToneAnalyzerV3(
   {
     "version": "2017-09-21",
     "url": "https://gateway.watsonplatform.net/tone-analyzer/api",
-    "username": "1115c46c-fd7e-428f-9b9b-f695a2c597f3",
-    "password": "3Anx41JvwqGH"
+    "username": "",
+    "password": ""
   });
 
 const sentimentAnalyzer = function(post) {
